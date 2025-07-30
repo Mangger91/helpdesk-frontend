@@ -1,11 +1,10 @@
 import { Input } from "../components/Input";
 import { Botao } from "../components/Botao";
+import { useNavigate } from "react-router-dom";
 
-interface Props {
-  onLogin: () => void;
-}
+export function LoginPage() {
+  const navigate = useNavigate();
 
-export function LoginPage({ onLogin }: Props) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
@@ -15,7 +14,7 @@ export function LoginPage({ onLogin }: Props) {
           className="flex flex-col gap-4"
           onSubmit={(e) => {
             e.preventDefault();
-            onLogin();
+            navigate("/chamados");
           }}
         >
           <Input type="email" placeholder="Email" />
